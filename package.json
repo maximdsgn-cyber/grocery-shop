@@ -1,37 +1,15 @@
-grocery-store/
-├─ app/
-│  ├─ layout.tsx
-│  ├─ page.tsx                # Home
-│  ├─ catalog/
-│  │  └─ page.tsx
-│  ├─ product/
-│  │  └─ [slug]/
-│  │     └─ page.tsx
-│  ├─ cart/
-│  │  └─ page.tsx
-│  ├─ checkout/
-│  │  └─ page.tsx
-│  ├─ account/
-│  │  └─ page.tsx
-│
-├─ components/
-│  ├─ Header.tsx
-│  ├─ Footer.tsx
-│  ├─ Hero.tsx
-│  ├─ CategoryCard.tsx
-│  ├─ ProductCard.tsx
-│  ├─ CartItem.tsx
-│  ├─ QuantitySelector.tsx
-│
-├─ data/
-│  ├─ categories.ts
-│  └─ products.ts
-│
-├─ lib/
-│  ├─ cart-store.ts           # Zustand / Context
-│  └─ stripe.ts
-│
-├─ styles/
-│  └─ globals.css
-│
-└─ tailwind.config.js
+{
+  "name": "grocery-shop",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.0.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
