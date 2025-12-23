@@ -23,25 +23,81 @@ const products = [
     price: "$2.29",
     image: "🍞",
   },
+  {
+    id: 5,
+    name: "Eggs",
+    price: "$3.49",
+    image: "🥚",
+  },
+  {
+    id: 6,
+    name: "Cheese",
+    price: "$4.99",
+    image: "🧀",
+  },
 ];
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      <h2 className="text-2xl font-bold mb-6">Products</h2>
+      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 16 }}>
+        Products
+      </h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+          gap: 16,
+        }}
+      >
         {products.map((product) => (
           <div
             key={product.id}
-            className="bg-white rounded-xl shadow hover:shadow-lg transition p-4 flex flex-col items-center text-center"
+            style={{
+              background: "white",
+              borderRadius: 16,
+              padding: 16,
+              boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              transition: "transform 0.15s ease, box-shadow 0.15s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow =
+                "0 8px 20px rgba(0,0,0,0.08)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "none";
+              e.currentTarget.style.boxShadow =
+                "0 4px 12px rgba(0,0,0,0.06)";
+            }}
           >
-            <div className="text-5xl mb-3">{product.image}</div>
-            <h3 className="font-semibold">{product.name}</h3>
-            <p className="text-green-600 font-bold mt-1">
-              {product.price}
-            </p>
-            <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+            <div style={{ fontSize: 48, textAlign: "center" }}>
+              {product.image}
+            </div>
+
+            <div>
+              <h3 style={{ margin: "12px 0 4px", fontSize: 16 }}>
+                {product.name}
+              </h3>
+              <strong style={{ fontSize: 16 }}>{product.price}</strong>
+            </div>
+
+            <button
+              style={{
+                marginTop: 12,
+                background: "#16a34a",
+                color: "white",
+                border: "none",
+                borderRadius: 10,
+                padding: "10px 0",
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
               Add to cart
             </button>
           </div>
