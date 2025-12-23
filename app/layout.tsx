@@ -1,5 +1,3 @@
-import "./globals.css";
-
 export const metadata = {
   title: "Grocery Shop",
   description: "Online grocery store",
@@ -12,46 +10,49 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900">
+      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif", background: "#f9fafb" }}>
+        
         {/* HEADER */}
-        <header className="sticky top-0 z-50 bg-white border-b">
-          <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
-            
-            {/* LOGO */}
-            <div className="flex items-center gap-2 text-xl font-bold">
-              🛒 <span>Grocery</span>
-            </div>
+        <header style={{
+          position: "sticky",
+          top: 0,
+          background: "white",
+          borderBottom: "1px solid #e5e7eb",
+          padding: "12px 16px",
+          display: "flex",
+          alignItems: "center",
+          gap: "12px",
+          zIndex: 50
+        }}>
+          <strong style={{ fontSize: 20 }}>🛒 Grocery</strong>
 
-            {/* SEARCH */}
-            <div className="flex-1">
-              <input
-                type="text"
-                placeholder="Search products..."
-                className="w-full rounded-lg border px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-            </div>
+          <input
+            placeholder="Search products..."
+            style={{
+              flex: 1,
+              padding: "8px 12px",
+              borderRadius: 8,
+              border: "1px solid #d1d5db"
+            }}
+          />
 
-            {/* CART */}
-            <button className="relative bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition">
-              Cart
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2">
-                0
-              </span>
-            </button>
-          </div>
+          <button style={{
+            background: "#16a34a",
+            color: "white",
+            border: "none",
+            borderRadius: 8,
+            padding: "8px 12px",
+            fontWeight: 600
+          }}>
+            Cart (0)
+          </button>
         </header>
 
-        {/* MAIN CONTENT */}
-        <main className="max-w-7xl mx-auto px-4 py-6">
+        {/* CONTENT */}
+        <main style={{ maxWidth: 1200, margin: "0 auto", padding: 16 }}>
           {children}
         </main>
 
-        {/* FOOTER */}
-        <footer className="mt-10 border-t bg-white">
-          <div className="max-w-7xl mx-auto px-4 py-6 text-sm text-gray-500">
-            © {new Date().getFullYear()} Grocery Shop — Fast delivery, fresh products
-          </div>
-        </footer>
       </body>
     </html>
   );
