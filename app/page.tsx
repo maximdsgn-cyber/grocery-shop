@@ -23,86 +23,41 @@ const products = [
     price: "$2.29",
     image: "🍞",
   },
-  {
-    id: 5,
-    name: "Eggs",
-    price: "$3.49",
-    image: "🥚",
-  },
-  {
-    id: 6,
-    name: "Cheese",
-    price: "$4.99",
-    image: "🧀",
-  },
 ];
 
 export default function HomePage() {
   return (
-    <>
-      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 16 }}>
-        Products
-      </h1>
+    <div>
+      <h1 className="text-2xl font-bold mb-6">Products</h1>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
-          gap: 16,
-        }}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div
             key={product.id}
-            style={{
-              background: "white",
-              borderRadius: 16,
-              padding: 16,
-              boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              transition: "transform 0.15s ease, box-shadow 0.15s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow =
-                "0 8px 20px rgba(0,0,0,0.08)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "none";
-              e.currentTarget.style.boxShadow =
-                "0 4px 12px rgba(0,0,0,0.06)";
-            }}
+            className="bg-white rounded-xl border shadow-sm hover:shadow-md transition p-4 flex flex-col"
           >
-            <div style={{ fontSize: 48, textAlign: "center" }}>
+            {/* IMAGE */}
+            <div className="text-5xl mb-4 text-center">
               {product.image}
             </div>
 
-            <div>
-              <h3 style={{ margin: "12px 0 4px", fontSize: 16 }}>
-                {product.name}
-              </h3>
-              <strong style={{ fontSize: 16 }}>{product.price}</strong>
-            </div>
+            {/* NAME */}
+            <h2 className="font-semibold text-lg mb-1">
+              {product.name}
+            </h2>
 
-            <button
-              style={{
-                marginTop: 12,
-                background: "#16a34a",
-                color: "white",
-                border: "none",
-                borderRadius: 10,
-                padding: "10px 0",
-                fontWeight: 600,
-                cursor: "pointer",
-              }}
-            >
+            {/* PRICE */}
+            <p className="text-green-600 font-bold mb-4">
+              {product.price}
+            </p>
+
+            {/* BUTTON */}
+            <button className="mt-auto bg-green-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition">
               Add to cart
             </button>
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
